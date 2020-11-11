@@ -1,8 +1,3 @@
-## intent:bye <!--- The label of the intent --> 
-- Bye 			<!--- Training examples for intent 'bye'--> 
-- Bye bot
-- bye
-- bye for now
 
 ## intent:greet
 - Hi
@@ -39,10 +34,7 @@
 - I am [Charlie](name)
 
 
-## intent: name
-- My name is [Abhishek]
-- I am [Abhishek] (name)
-- 
+
 
 ## intent:book room
 -I wish to book a [room](location) in your hotel
@@ -128,32 +120,3 @@
 - is the breakfast available at the restaurant 
 - what are the breakfast options available
 - what are the breakfast options available at the hotel 
-## intent:joke
-- Can you tell me a joke?
-- I would like to hear a joke
-- Tell me a joke
-- A joke please
-
-## intent:order_product
-- I want to buy a [laptop](product)
-- I want to get a new [phone](product)
-- I would like to buy a [laptop](product)
-- I would like to get a new [laptop](product)
-- I want to buy a new [laptop](product)
-- I want to buy a new [phone](product)
-- I would like to buy a [phone](product)
-- I would like to get a new [phone](product)
-
-## intent:order_model
-- I identify [MacBook](model)
-- I identify [Acer](model)
-- I identify [HP](model)
-- I have identify [MacBook](model)
-- I have identify [Acer](model)
-- I have identify [HP](model)
-
-## intent:out_of_scope
-- Is Rasa really smart?
-- bots are bad
-- I dont like bots
-- Is Rasa bot smart?
