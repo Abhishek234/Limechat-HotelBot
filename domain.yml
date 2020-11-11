@@ -1,8 +1,12 @@
 #This code runs the part to decide the sesion time is user doesn't reply out and the permission to continue
 # the slot of the user if he talks to the bot after a certain amount of time
+version: "2.0"
+
 session_config:
-session_expiration_time: 120
-session_to_continue_over_next_slot: True
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+
 
 #This piece trigger the natural intents of the bot depending on the question asked by the user
 intents:
@@ -39,81 +43,94 @@ faq_restaurant_timings :
 triggers: action_restaurant_timings
 
 entities:
--number
--location
--room_type
+- number
+- location
+- room_type
 
 slots:
--number
-type: unfeaturized
-- room_type
-type: unfeaturized
+number:
+type: number
+room_type:
+type: number
+location:
+type: text
 
 responses:
- utter_greet:
--text: Hey, how may I help you?
--text : Hey I am Fury (artificial name), you can tell me what you are looking for 
- 
- utter_submit:
- text: Your room()s have been booked. No of (room_type) roooms booked:number
-
-utter_room_no:
--buttons:
-  payload: /num_rooms{"number":"1"}
-  title : '1'
-  payload: /num_rooms{"number":"2"}
-  title : '2'
-  text : Select the no of rooms you want to book
-
-utter_ask_room_type :
-   payload: /type_rooms{"room_type":"single"}
-   title : 'Single'
-   payload: /type_rooms{"room_type":"double"}
-   title : 'double'
-   payload: /type_rooms{"room_type":"deluxe"}
-   title : 'deluxe'
-
-utter_clean_room :
--text: When do you want to clean your room
-utter_clean_room_now:
--text: Someone will be sent to clean your room now
-utter_clean_room_later:   
--text: Someone will be sent to your room when you are free
-utter_check_out_time:
--text: Check-out time is 11 AM. Please contact the reception for late checkout
-      requests.
-utter_cancel_reservation:
-  - text: To cancel a reservation, visit the “Reservations” link from the homepage.
-  - text: On the Reservations page, under the heading ‘View, Change or Cancel a Reservation,’enter
-      your confirmation number, and either the last name on the reservation or the
-      last four digits of the credit card used to make the reservation.
- utter_cancellation_policy:
-  - text: The booking deposit is refundable if the cancellation occurs at least 15
-      days before arrival. 
-
-utter_refund_policy :
-  -text: Full refund will be issued as per the cancellation policy.Certain penalty will be imposed on the booking amount as per the delay
-utter_have_restaurant:
-  -text: We have different types of restaurnats available in our hotel.It includes normal ,deluxe and premium restaurants and they serve everything with a smile 
-     on the face
-
-utter_breakfast_avail:
-  - text: Yes, the hotel provides a free in breakfast service according to the choice of indiciduals
-utter_breakfast_time:
-  -text: The breakfast time is from 8 AM to 10 AM in the definite time zone on all days
-utter_restautant_time:
-  -text: We provide a 24 hour in service for our guests
-utter_is_that_all :
-  -text: Is that all or do you need more help?
-utter_have_a good_day:
-  -text: Have a good day Sir.See you next time soon:)
-utter_deny_message:
-  -text: How may I help you?
-utter_fallback_message:
-  -text: Sorry, I did't understand.Could you rephrase it?
+  utter_greet:
+    -text: Hey, how may I help you?
+    -text : Hey I am Fury (artificial name), you can tell me what you are looking for
+  utter_submit:
+    -text: Your room()s have been booked. No of (room_type) roooms booked:number
+  utter_room_no:
+    -buttons:
+      payload: /num_rooms{"number":"1"}
+      title : '1'
+      payload: /num_rooms{"number":"2"}
+      title : '2'
+      text : Select the no of rooms you want to book
 
 
-  actions:
+  utter_ask_room_type :
+    - buttons:
+    
+
+       payload: /type_rooms{"room_type":"single"}
+       title : Single
+       payload: /type_rooms{"room_type":"double"}
+       title : double
+       payload: /type_rooms{"room_type":"deluxe"}
+       title : deluxe
+    text: Select the choice of your room type
+  utter_clean_room :
+    -text: When do you want to clean your room
+  utter_clean_room_now:
+    -text: Someone will be sent to clean your room now
+  utter_clean_room_later:
+    -text: Someone will be sent to your room when you are free
+
+  utter_check_out_time:
+    -text: Check-out time is 10 AM. Please contact the reception for futher detaills.Here is the contact no [number](number) for the same
+
+
+  utter_cancel_reservation:
+    - text: To cancel a reservation, visit the “Reservations” link from the homepage.
+
+    - text: On the Reservations page, under the heading ‘View, Change or Cancel a Reservation,’enter
+    your confirmation number, and follow the instructions thereafter
+
+  utter_refund_policy :
+    
+
+    -text: Full refund will be issued as per the cancellation policy.Certain penalty will be imposed on the booking amount as per the delay
+
+
+
+  utter_have_restaurant:
+
+    -text: We have different types of restaurnats available in our hotel.It includes normal ,deluxe and premium restaurants and they serve everything with a smile on the face
+
+
+  utter_breakfast_avail:
+    - text: Yes, the hotel provides a free in breakfast service according to the choice of individuals
+
+  utter_breakfast_time:
+    -text: The breakfast time is from 8 AM to 10 AM in the definite time zone on all days
+  
+  utter_restautant_time:
+    -text: We provide a 24 hour in service for our guests
+  utter_is_that_all :
+    -text: Is that all or do you need more help?
+  utter_have_a good_day:
+    -text: Have a good day Sir.See you next time soon:)    
+  utter_deny_message:
+    -text: How may I help you?
+  
+  utter_fallback_message:
+    -text: Sorry, I did't understand.Could you rephrase it?         
+    
+
+
+actions:
 - action_reset_slots
 - action_my_fallback
 - action_check_in_time
