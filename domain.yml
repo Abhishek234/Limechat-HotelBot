@@ -145,11 +145,9 @@ actions:
 - utter_submit
 - utter_ask_number
 - utter_ask_room_type
-- utter_simple_room_image
-- utter_deluxe_room_image
 - utter_clean_room
 - utter_clean_room_now
-- utter_clean_room_relative
+- utter_clean_room_later
 - utter_check_in_time
 - utter_check_out_time
 - utter_cancel_reservation
@@ -159,9 +157,9 @@ actions:
 - utter_breakfast_time
 - utter_restaurant_time
 - utter_is_that_all
-- utter_goodbye
-- utter_deny_message
-- utter_fallback_message
-forms to fill:
+- utter_bye
+- utter_deny
+- utter_fallback
+forms:
   -form_book_room
-  -form_assigned_room_number
+  -form_room_number
