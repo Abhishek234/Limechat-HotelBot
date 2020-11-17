@@ -122,10 +122,10 @@ responses:
     -text: Is that all or do you need more help?
   utter_have_a good_day:
     -text: Have a good day Sir.See you next time soon:)    
-  utter_deny_message:
+  utter_deny:
     -text: How may I help you?
   
-  utter_fallback_message:
+  utter_fallback:
     -text: Sorry, I did't understand.Could you rephrase it?         
     
 
